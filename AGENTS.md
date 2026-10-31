@@ -1,6 +1,13 @@
-# Hello World!
+# Project scaffold
 
-This is a new project. Replace this block when you find out what this project is about.
+This repository is a starting point for a new project. It contains development
+configuration and a Bonsai adoption skill; application source and executable
+contracts have not been created yet.
+
+Bonsai CI uses the reusable action in `.github/workflows/bonsai.yml`. Read
+`.agents/skills/bonsai/SKILL.md` when connecting real handlers and contracts or
+resolving a rejected or incomplete check. Keep policy and inventory changes
+explicitly reviewed; do not invent product promises to make the gate pass.
 
 ---
 
@@ -82,8 +89,15 @@ Default section order:
 
 ## User Preferences
 
-When the user requests a durable behavior change, record it here or in the relevant child AGENTS.md
+Use the reusable Bonsai action for the project's CI allowance check. Keep legacy
+Bonsai self-checks out of the general CI workflow. Record other durable behavior
+preferences here or in the relevant child AGENTS.md.
 
 ## Child DOX Index
 
-This project is not yet indexed. Before continuing you must scan the project, build the DOX tree and replace this message with the actual index. Go deep and scan files recursively to properly evaluate complexity and create nested DOX files where needed.
+The root owns package metadata, TypeScript and Biome configuration, shell setup,
+editor/Git settings, and `bonsai.json` plus `bonsai.bindings.ts`. It also owns the
+vendored `.agents/skills/bonsai/` skill and its adoption reference, tracked by
+`skills-lock.json`; those files are guidance, not application contracts.
+
+- [.github/AGENTS.md](.github/AGENTS.md): formatting, general CI, and the reusable Bonsai allowance workflow
