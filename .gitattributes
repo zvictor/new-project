@@ -1,0 +1,3 @@
+# Imported and packaged reporting descriptors preserve identical bytes on every OS.
+**/package.json text eol=lf
+**/reporting.json text eol=lf

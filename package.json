@@ -1,0 +1,28 @@
+{
+  "name": "@jigging/bonsai",
+  "private": "true",
+  "version": "0.0.0-alpha.1",
+  "type": "module",
+  "engines": {
+    "bun": ">=1.4.3"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "bun test --isolate --timeout 30000",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
+  "dependencies": {
+    "@cucumber/gherkin": "^37.0.0",
+    "typescript": "~7.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@biomejs/biome": "2.5.12"
+  },
+  "packageManager": "bun@1.4.3",
+  "publishConfig": {
+    "access": "restricted",
+    "tag": "alpha"
+  }
+}

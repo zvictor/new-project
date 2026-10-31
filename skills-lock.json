@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "bonsai": {
+      "source": "jiggy/bonsai",
+      "sourceType": "github",
+      "skillPath": "skills/bonsai/SKILL.md",
+      "computedHash": "8e9bce181bbadf420e972780135b0b97f9fad9831b641fe58e341f1f28a1ed17"
+    }
+  }
+}
