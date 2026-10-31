@@ -26,7 +26,7 @@ jobs:
           fi
       - name: Check Bonsai allowance
         id: bonsai
-        uses: jiggy/bonsai@ab35db95df1ded9b562c0062d2cafb8f4ac4e6bd # Merged reusable action (PR #16)
+        uses: jiggy/bonsai@main
       - name: Save Bonsai report
         if: always() && steps.bonsai.outputs.report-path != ''
         uses: actions/upload-artifact@v4
