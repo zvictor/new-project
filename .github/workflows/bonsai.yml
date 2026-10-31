@@ -1,0 +1,36 @@
+name: Bonsai
+on:
+  pull_request:
+  merge_group:
+permissions:
+  contents: read
+jobs:
+  allowance:
+    name: Bonsai allowance
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: 1.4.3
+      - name: Install application dependencies
+        run: |
+          if [[ -f bun.lock || -f bun.lockb ]]; then
+            bun install --frozen-lockfile --ignore-scripts --no-env-file
+          else
+            bun install --ignore-scripts --no-env-file
+          fi
+      - name: Check Bonsai allowance
+        id: bonsai
+        uses: jiggy/bonsai@ab35db95df1ded9b562c0062d2cafb8f4ac4e6bd # Merged reusable action (PR #16)
+      - name: Save Bonsai report
+        if: always() && steps.bonsai.outputs.report-path != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: bonsai-report
+          path: ${{ steps.bonsai.outputs.report-path }}
+          retention-days: 14
